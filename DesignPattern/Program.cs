@@ -1,5 +1,6 @@
 ﻿using DesignPattern.BuilderDesignPattern;
 using DesignPattern.FactoryDesignPattern;
+using DesignPattern.PrototypeDesignPattern;
 using DesignPattern.SingletonDesignPattern;
 using System;
 
@@ -23,15 +24,36 @@ namespace DesignPattern
             //scooter.Drive(20);
             #endregion
             #region Builder Pattern
-            var vehicleCreater = new VehicleCreator(new HondaBuilder());
-            vehicleCreater.CreateVehicle();
-            var vehicle = vehicleCreater.GetVehicle();
-            vehicle.ShowInfo();
-            Console.WriteLine("---------------------------------------------");
-            vehicleCreater = new VehicleCreator(new HeroBuilder());
-            vehicleCreater.CreateVehicle();
-            vehicle = vehicleCreater.GetVehicle();
-            vehicle.ShowInfo();
+            //var vehicleCreater = new VehicleCreator(new HondaBuilder());
+            //vehicleCreater.CreateVehicle();
+            //var vehicle = vehicleCreater.GetVehicle();
+            //vehicle.ShowInfo();
+            //Console.WriteLine("---------------------------------------------");
+            //vehicleCreater = new VehicleCreator(new HeroBuilder());
+            //vehicleCreater.CreateVehicle();
+            //vehicle = vehicleCreater.GetVehicle();
+            //vehicle.ShowInfo();
+            #endregion
+            #region Prototype Pattern
+            Developer developer = new Developer();
+            developer.Name = "Vijay Pandit";
+            developer.Role = "Developer";
+            developer.PreferredLanguage = "C#";
+            Developer devCopy = (Developer)developer.Clone();
+            devCopy.Name = "Subin Manandhar";//Not mention Role and PreferredLanguage, it will copy above
+            Console.WriteLine(developer.GetDetails());
+            Console.WriteLine(devCopy.GetDetails());
+            Console.WriteLine("---------------------------------------------------");
+            Typist typist = new Typist();
+            typist.Name = "Ajuba";
+            typist.WordsPerMinute = 120;
+            typist.Role = "Typist";
+            Typist typistCopy = (Typist)typist.Clone();
+            typistCopy.Name = "Salo";
+            Console.WriteLine(typist.GetDetails());
+            Console.WriteLine(typistCopy.GetDetails());
+
+
             #endregion
             Console.ReadKey();
         }
