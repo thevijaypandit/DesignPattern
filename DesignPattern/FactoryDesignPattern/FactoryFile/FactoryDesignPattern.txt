@@ -1,0 +1,149 @@
+﻿Factory Method Design Pattern - C#:
+----------------------------------
+The factory method design pattern abstract the process of object creation and allows the object to be created at run-time when it is required. Factory method pattern falls under Creational Pattern of Gang of Four (GOF) Design Patterns in .Net.
+It is used to create objects. People usually use this pattern as the standard way to create objects.
+
+What is Factory Method Pattern?
+------------------------------
+In Factory pattern, we create the object without exposing the creation logic. In this pattern, an interface is used for creating an object, but let subclass decide which class to instantiate. The creation of object is done when it is required.
+The Factory method allows a class later instantiation to subclasses.
+
+In summery, factory method design pattern abstract the process of object creation and allows the object to be created at run-time when it is required.
+
+*Product
+This is an interface for creating the objects.
+
+*ConcreteProduct
+This is a class which implements the Product interface.
+
+*Creator
+This is an abstract class and declares the factory method, which returns an object of type Product.
+
+*ConcreteCreator
+This is a class which implements the Creator class and overrides the factory method to return an instance of a ConcreteProduct.
+interface Product
+{
+
+}
+
+class ConcreteProductA : Product
+{
+}
+
+class ConcreteProductB : Product
+{
+}
+
+abstract class Creator
+{
+ public abstract Product FactoryMethod(string type);
+}
+
+class ConcreteCreator : Creator
+{
+ public override Product FactoryMethod(string type)
+ {
+ switch (type)
+ {
+ case "A": return new ConcreteProductA();
+ case "B": return new ConcreteProductB();
+ default: throw new ArgumentException("Invalid type", "type");
+ }
+ }
+}
+The classes, interfaces, and objects in the above class diagram can be identified as follows:
+
+**IFactory - Interface
+
+**Scooter & Bike - Concreate Product classes
+
+**VehicleFactory - Creator
+
+**ConcreteVehicleFactory - Concreate Creator
+
+***code example
+-----------------------------------------------------------------------------------------------
+using System;
+namespace Factory
+{
+ /// <summary>
+ /// The 'Product' interface
+ /// </summary>
+ public interface IFactory
+ {
+ void Drive(int miles);
+ }
+
+ /// <summary>
+ /// A 'ConcreteProduct' class
+ /// </summary>
+ public class Scooter : IFactory
+ {
+ public void Drive(int miles)
+ {
+ Console.WriteLine("Drive the Scooter : " + miles.ToString() + "km");
+ }
+ }
+
+ /// <summary>
+ /// A 'ConcreteProduct' class
+ /// </summary>
+ public class Bike : IFactory
+ {
+ public void Drive(int miles)
+ {
+ Console.WriteLine("Drive the Bike : " + miles.ToString() + "km");
+ }
+ }
+
+ /// <summary>
+ /// The Creator Abstract Class
+ /// </summary>
+ public abstract class VehicleFactory
+ {
+ public abstract IFactory GetVehicle(string Vehicle);
+
+ }
+
+ /// <summary>
+ /// A 'ConcreteCreator' class
+ /// </summary>
+ public class ConcreteVehicleFactory : VehicleFactory
+ {
+ public override IFactory GetVehicle(string Vehicle)
+ {
+ switch (Vehicle)
+ {
+ case "Scooter":
+ return new Scooter();
+ case "Bike":
+ return new Bike();
+ default:
+ throw new ApplicationException(string.Format("Vehicle '{0}' cannot be created", Vehicle));
+ }
+ }
+
+ }
+ 
+ /// <summary>
+ /// Factory Pattern Demo
+ /// </summary>
+ class Program
+ {
+ static void Main(string[] args)
+ {
+ VehicleFactory factory = new ConcreteVehicleFactory();
+
+ IFactory scooter = factory.GetVehicle("Scooter");
+ scooter.Drive(10);
+
+ IFactory bike = factory.GetVehicle("Bike");
+ bike.Drive(20);
+
+ Console.ReadKey();
+
+ }
+ }
+}
+
+***Output:
