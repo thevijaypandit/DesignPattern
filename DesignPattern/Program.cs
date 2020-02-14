@@ -23,6 +23,9 @@ namespace DesignPattern
             //IFactory scooter = factory.GetVehicle("Scooter");
             //scooter.Drive(20);
             #endregion
+            #region abstract factory pattern
+
+            #endregion
             #region Builder Pattern
             //var vehicleCreater = new VehicleCreator(new HondaBuilder());
             //vehicleCreater.CreateVehicle();
@@ -52,8 +55,6 @@ namespace DesignPattern
             typistCopy.Name = "Salo";
             Console.WriteLine(typist.GetDetails());
             Console.WriteLine(typistCopy.GetDetails());
-
-
             #endregion
             Console.ReadKey();
         }
