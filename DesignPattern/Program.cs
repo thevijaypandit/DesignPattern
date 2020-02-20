@@ -39,6 +39,7 @@ namespace DesignPattern
             //vehicle.ShowInfo();
             #endregion
             #region Prototype Pattern
+
             //Developer developer = new Developer();
             //developer.Name = "Vijay Pandit";
             //developer.Role = "Developer";
@@ -58,6 +59,7 @@ namespace DesignPattern
             //Console.WriteLine(typistCopy.GetDetails());
             #endregion
 
+
             #region SOLID Design Principle
             #region DependencyInversionPrinciple
             IAutomobile automobile = new Jeep();
@@ -65,7 +67,6 @@ namespace DesignPattern
             automobile.Ignition();
             automobile.Stop();
             #endregion
-
             #endregion
             Console.ReadKey();
         }
