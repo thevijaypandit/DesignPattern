@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="AbstractFactoryDesignPattern\" />
+    <ProjectReference Include="..\SolidPrinciple\SolidPrinciple.csproj" />
   </ItemGroup>
 
 </Project>

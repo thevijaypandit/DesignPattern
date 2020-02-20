@@ -2,6 +2,7 @@
 using DesignPattern.FactoryDesignPattern;
 using DesignPattern.PrototypeDesignPattern;
 using DesignPattern.SingletonDesignPattern;
+using SolidPrinciple.DependencyInversionPrinciple_DIP_;
 using System;
 
 namespace DesignPattern
@@ -38,23 +39,33 @@ namespace DesignPattern
             //vehicle.ShowInfo();
             #endregion
             #region Prototype Pattern
-            Developer developer = new Developer();
-            developer.Name = "Vijay Pandit";
-            developer.Role = "Developer";
-            developer.PreferredLanguage = "C#";
-            Developer devCopy = (Developer)developer.Clone();
-            devCopy.Name = "Subin Manandhar";//Not mention Role and PreferredLanguage, it will copy above
-            Console.WriteLine(developer.GetDetails());
-            Console.WriteLine(devCopy.GetDetails());
-            Console.WriteLine("---------------------------------------------------");
-            Typist typist = new Typist();
-            typist.Name = "Ajuba";
-            typist.WordsPerMinute = 120;
-            typist.Role = "Typist";
-            Typist typistCopy = (Typist)typist.Clone();
-            typistCopy.Name = "Salo";
-            Console.WriteLine(typist.GetDetails());
-            Console.WriteLine(typistCopy.GetDetails());
+            //Developer developer = new Developer();
+            //developer.Name = "Vijay Pandit";
+            //developer.Role = "Developer";
+            //developer.PreferredLanguage = "C#";
+            //Developer devCopy = (Developer)developer.Clone();
+            //devCopy.Name = "Subin Manandhar";//Not mention Role and PreferredLanguage, it will copy above
+            //Console.WriteLine(developer.GetDetails());
+            //Console.WriteLine(devCopy.GetDetails());
+            //Console.WriteLine("---------------------------------------------------");
+            //Typist typist = new Typist();
+            //typist.Name = "Ajuba";
+            //typist.WordsPerMinute = 120;
+            //typist.Role = "Typist";
+            //Typist typistCopy = (Typist)typist.Clone();
+            //typistCopy.Name = "Salo";
+            //Console.WriteLine(typist.GetDetails());
+            //Console.WriteLine(typistCopy.GetDetails());
+            #endregion
+
+            #region SOLID Design Principle
+            #region DependencyInversionPrinciple
+            IAutomobile automobile = new Jeep();
+            AutomobileController automobileController = new AutomobileController(automobile);
+            automobile.Ignition();
+            automobile.Stop();
+            #endregion
+
             #endregion
             Console.ReadKey();
         }

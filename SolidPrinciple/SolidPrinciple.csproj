@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="InterfaceSegregationPrinciple%28ISP%29\" />
+    <Folder Include="LiskovSubstitutionPrinciple%28LSP%29\" />
+    <Folder Include="OpenClosedPrinciple%28OCP%29\" />
+    <Folder Include="SingleResponsibilityPrinciple%28SRP%29\" />
+  </ItemGroup>
+
+</Project>
