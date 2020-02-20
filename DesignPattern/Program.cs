@@ -2,6 +2,7 @@
 using DesignPattern.FactoryDesignPattern;
 using DesignPattern.PrototypeDesignPattern;
 using DesignPattern.SingletonDesignPattern;
+using SolidPrinciple.DependencyInversionPrinciple_DIP_;
 using System;
 
 namespace DesignPattern
@@ -57,8 +58,15 @@ namespace DesignPattern
             //Console.WriteLine(typist.GetDetails());
             //Console.WriteLine(typistCopy.GetDetails());
             #endregion
-            #region abstract factory pattern
 
+
+            #region SOLID Design Principle
+            #region DependencyInversionPrinciple
+            IAutomobile automobile = new Jeep();
+            AutomobileController automobileController = new AutomobileController(automobile);
+            automobile.Ignition();
+            automobile.Stop();
+            #endregion
             #endregion
             Console.ReadKey();
         }
